@@ -39,7 +39,7 @@ TYPE=Ethernet
 DEVICE=eth0
 ONBOOT=yes
 BOOTPROTO=dhcp
-
+```
 Clear logs
 rm -f /var/log/boot.log
 rm -f /var/log/cron
@@ -57,7 +57,7 @@ rm -f /var/log/yum.log
 rm -f /var/log/audit/audit.log
 rm -f /var/log/ovirt-guest-agent/ovirt-guest-agent.log
 rm -f /var/log/tuned/tuned.log
-
+```
 Install oVirt repository, install ovirt agent, and enable it.
 yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 yum install ovirt-guest-agent-common
