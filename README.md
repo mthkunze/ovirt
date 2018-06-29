@@ -4,7 +4,8 @@
 
 The purpose of this article is to describe the process to create a CentOS 7Minimal oVirt virtual machine for cloning to a template.
 
-## Process
+## Procedure
+
 Update hostname
 Clear machine-id; deletion is problematic next boot
 Delete SSH host keys
@@ -20,6 +21,8 @@ Deploy virtual machine using template
 
 #Execute
 Update the hostname to something generic (optional)
+
+```
 hostnamectl set-hostname localhost.localdomain
 hostnamectl
 > /etc/machine-id
@@ -29,6 +32,8 @@ rrm -rf /root/.ssh/
 rm -f /root/anaconda-ks.cfg
 rm -f /root/.bash_history
 unset HISTFILE
+```
+
 ###Network Interface
 
 Remove the HWADDR= line from /etc/sysconfig/network-scripts/ifcfg-eth0. 
