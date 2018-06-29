@@ -76,6 +76,7 @@ Ready to create template!
 Seal Script
 Peridocially, I update the templates with updates and configuration changes. I use a script to reseal the virtual machine, sealvm.sh.
 
+[
 yum clean all
 > /etc/machine-id
 rm -f /etc/ssh/ssh_host_rm -rf /root/.ssh/
@@ -102,3 +103,4 @@ sys-unconfig
 yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 yum install ovirt-guest-agent-common
 systemctl enable ovirt-guest-agent
+]
