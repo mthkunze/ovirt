@@ -1,6 +1,6 @@
 # ovirt
 
-# CentOS 7 1511 Minimal oVirt Template
+# CentOS 7 Minimal oVirt Template
 
 The purpose of this article is to describe the process to create a CentOS 7Minimal oVirt virtual machine for cloning to a template.
 
