@@ -82,6 +82,10 @@ Seal Script
 Peridocially, I update the templates with updates and configuration changes. I use a script to reseal the virtual machine, sealvm.sh.
 
 ```
+yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+yum install ovirt-guest-agent-common
+systemctl enable ovirt-guest-agent
+
 yum clean all
 > /etc/machine-id
 rm -f /etc/ssh/ssh_host_rm -rf /root/.ssh/
@@ -105,12 +109,12 @@ rm -f /var/log/audit/audit.log
 rm -f /var/log/ovirt-guest-agent/ovirt-guest-agent.log
 rm -f /var/log/tuned/tuned.log
 sys-unconfig
-yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
-yum install ovirt-guest-agent-common
-systemctl enable ovirt-guest-agent
+
 ```
 ###
 PREP after Update
 
-User: 
+User:
+```
 user=myuser ; sudo virt-sysprep -a CentOS-7.qcow2 -v --run-command 'useradd $user' --ssh-inject $user:file:/home/$user/.ssh/id_rsa.pub
+```
