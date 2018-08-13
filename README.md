@@ -109,3 +109,8 @@ yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 yum install ovirt-guest-agent-common
 systemctl enable ovirt-guest-agent
 ```
+###
+PREP after Update
+
+User: 
+user=myuser ; sudo virt-sysprep -a CentOS-7.qcow2 -v --run-command 'useradd $user' --ssh-inject $user:file:/home/$user/.ssh/id_rsa.pub
