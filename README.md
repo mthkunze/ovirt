@@ -116,5 +116,20 @@ PREP after Update
 
 User:
 ```
-user=myuser ; sudo virt-sysprep -a CentOS-7.qcow2 -v --run-command 'useradd $user' --ssh-inject $user:file:/home/$user/.ssh/id_rsa.pub
+export user=myuser && sudo virt-sysprep -a CentOS-7.qcow2 -v --run-command 'useradd $user' --ssh-inject $user:file:/home/$user/.ssh/id_rsa.pub
 ```
+
+Install Image
+```
+ virt-install --import \
+--name centos \
+--memory 1024 \
+--vcpus 2 \
+--cpu host \
+--disk path=/var/lib/libvirt/images/CentOS7.qcow2,size=2,bus=virtio,format=qcow \
+--os-type=linux \
+--os-variant=centos7.0 \
+--graphics spice \
+--noautoconsole \
+--disk /home/user/CentOS7.qcow2
+´´´
