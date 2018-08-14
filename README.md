@@ -119,7 +119,7 @@ User:
 export user=myuser && sudo virt-sysprep -a CentOS-7.qcow2 -v --run-command 'useradd $user' --ssh-inject $user:file:/home/$user/.ssh/id_rsa.pub
 ```
 
-Install Image
+Start Local Image
 ```
  virt-install --import \
 --name centos \
@@ -132,4 +132,9 @@ Install Image
 --graphics spice \
 --noautoconsole \
 --disk /home/user/CentOS7.qcow2
+´´´
+List IP
+```
+virsh net-list
+virsh net-dhcp-leases default
 ´´´
