@@ -132,9 +132,10 @@ Start Local Image
 --graphics spice \
 --noautoconsole \
 --disk /home/user/CentOS7.qcow2
-´´´
+
+
 List IP
 ```
 virsh net-list
 virsh net-dhcp-leases default
-´´´
+
