@@ -34,16 +34,20 @@ rm -f /root/.bash_history
 unset HISTFILE
 ```
 
-###Network Interface
+### Network Interface
 
-Remove the HWADDR= line from /etc/sysconfig/network-scripts/ifcfg-eth0. 
+Remove the HWADDR= line from /etc/sysconfig/network-scripts/ifcfg-eth0.
+
 Note that oVirt using cloud-init does not support PREFIX so update the ifcfg to use the equivalent NETMASK. 
 If using static, I remove all items except, TYPE, BOOTPROTO, DEVICE, ONBOOT, IPADDR, NETMASK, and GATEWAY. Altenatively, use DHCP which result with:
+
+vi ifcfg-eth0
 
 TYPE=Ethernet
 DEVICE=eth0
 ONBOOT=yes
 BOOTPROTO=dhcp
+
 ```
 Clear logs
 rm -f /var/log/boot.log
@@ -85,16 +89,17 @@ Peridocially, I update the templates with updates and configuration changes. I u
 yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 yum install ovirt-guest-agent-common
 systemctl enable ovirt-guest-agent
+```
 
-
-## Cloud Init (OPTIONAL)
+### Cloud Init (OPTIONAL)
 
 Install cloud-init package if desired. I experimented with cloud-init. I had mixed results for Fedora but for CentOS 7.2.1511, it worked beautifully. Remember to enable the service as shown below. Also, I suspect DHCP is a dependency but not taken the time to test.
 
+```
 yum install cloud-init
 systemctl enable cloud-init
-
-
+```
+```
 yum clean all
 > /etc/machine-id
 rm -f /etc/ssh/ssh_host_rm -rf /root/.ssh/
@@ -118,10 +123,8 @@ rm -f /var/log/audit/audit.log
 rm -f /var/log/ovirt-guest-agent/ovirt-guest-agent.log
 rm -f /var/log/tuned/tuned.log
 sys-unconfig
-
 ```
-###
-PREP after Update
+### PREP after Update
 
 User:
 ```
