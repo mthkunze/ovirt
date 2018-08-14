@@ -128,7 +128,7 @@ sys-unconfig
 
 User:
 ```
-export user=myuser && sudo virt-sysprep -a CentOS-7.qcow2 -v --run-command 'useradd $user' --ssh-inject $user:file:/home/$user/.ssh/id_rsa.pub
+virt-sysprep -a centos.qcow2 --root-password password:asd --ssh-inject root:file:/home/user/.ssh/id_rsa.pub
 ```
 
 Start Local Image
