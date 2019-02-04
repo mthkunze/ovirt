@@ -2,14 +2,13 @@
 
 # Specify settings here.
 VM_GUEST_DOMAIN="new-guest"
-BASE_GUEST_DOMAIN="ubuntu-16.04-docker-image"
-BASE_GUEST_DISK="/vms/base-images/ubuntu-16.04.qcow2"
+BASE_GUEST_DOMAIN="centos-7.5-docker-image"
+BASE_GUEST_DISK="/vms/base-images/dentos-7.5.qcow2"
 VM_GUEST_FOLDER="/vms/$VM_GUEST_DOMAIN"
 VM_GUEST_DISK="`echo $VM_GUEST_FOLDER`/`echo $VM_GUEST_DOMAIN`.qcow2"
 VM_GUEST_XML_PATH="`echo $VM_GUEST_FOLDER`/`echo $VM_GUEST_DOMAIN`.xml"
 
-# Create a directory for anything related 
-# to our guest such as snapshots
+# Create a directory for anything related to our guest such as snapshots
 mkdir -p $VM_GUEST_FOLDER
 
 # Create a qcow2 disk file for our new guest.
