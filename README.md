@@ -2,22 +2,22 @@
 
 # CentOS 7 Minimal oVirt Template
 
-The purpose of this article is to describe the process to create a CentOS 7Minimal oVirt virtual machine for cloning to a template.
+The purpose of this article is to describe the process to create a CentOS 7 Minimal oVirt virtual machine for cloning to a template.
 
 ## Procedure
 
-Update hostname
-Clear machine-id; deletion is problematic next boot
-Delete SSH host keys
-Replace ifcfg-eth0 PREFIX with NETMASK
-Edit ifcfg-eth0 to remove unnecessary values including HWADD
-Delete logs
-Install ovirt-guest-agent-common
-Complete any additional desired configurations or installations.
-(Install cloud-init; optional)
-sys-unconfig (clears host specific information then poweroff)
-Convert virtual machine to template
-Deploy virtual machine using template
+- Update hostname
+- Clear machine-id
+- Delete SSH host keys
+- Replace ifcfg-devname PREFIX with NETMASK
+- Edit ifcfg-devname to remove unnecessary values including HWADD
+- Delete logs
+- Install ovirt-guest-agent-common
+- Complete any additional desired configurations or installations.
+- Install cloud-init > optional
+- sys-unconfig (clears host specific information then poweroff)
+- Convert virtual machine to template
+- Deploy virtual machine using template
 
 #Execute
 Update the hostname to something generic (optional)
@@ -151,4 +151,3 @@ List IP
 ```
 virsh net-list
 virsh net-dhcp-leases default
-
